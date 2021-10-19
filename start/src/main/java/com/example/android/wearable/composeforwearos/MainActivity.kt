@@ -28,6 +28,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -72,34 +73,18 @@ fun WearApp() {
 
     WearAppTheme {
         // TODO: Swap to ScalingLazyListState
-        val listState = rememberScalingLazyListState()
+        val listState = rememberLazyListState()
 
         /* *************************** Part 4: Wear OS Scaffold *************************** */
         // TODO (Start): Create a Scaffold (Wear Version)
-        Scaffold(
-            timeText = {
-                if (!listState.isScrollInProgress) {
-                    TimeText()
-                }
-            },
-            vignette = {
-                // Only show a Vignette for scrollable screens. This code lab only has one screen,
-                // which is scrollable, so we show it all the time.
-                Vignette(vignettePosition = VignettePosition.TopAndBottom)
-            },
-            positionIndicator = {
-                PositionIndicator(
-                    scalingLazyListState = listState
-                )
-            }
-        ) {
 
+            // Modifiers used by our Wear composables.
             val contentModifier = Modifier.fillMaxWidth().padding(bottom = 8.dp)
             val iconModifier = Modifier.size(24.dp).wrapContentSize(align = Alignment.Center)
 
             /* *************************** Part 3: ScalingLazyColumn *************************** */
-            // TODO: Create a ScalingLazyColumn (Wear's version of LazyColumn)
-            ScalingLazyColumn(
+            // TODO: Swap a ScalingLazyColumn (Wear's version of LazyColumn)
+            LazyColumn(
                 modifier = Modifier.fillMaxSize(),
                 contentPadding = PaddingValues(
                     top = 32.dp,
@@ -110,6 +95,9 @@ fun WearApp() {
                 verticalArrangement = Arrangement.Center,
                 state = listState
             ) {
+
+                // TODO: Remove item; for beginning only.
+                item { StartOnlyTextComposables() }
 
                 /* ******************* Part 1: Similar composables to Mobile ******************* */
                 item { ButtonExample(contentModifier, iconModifier) }
@@ -122,7 +110,7 @@ fun WearApp() {
             }
 
         // TODO (End): Create a Scaffold (Wear Version)
-        }
+
     }
 }
 

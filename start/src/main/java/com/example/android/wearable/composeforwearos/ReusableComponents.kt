@@ -56,33 +56,13 @@ fun ButtonExample(
     iconModifier: Modifier = Modifier
 ) {
     // TODO: Create a Button Composable (with a Row to center)
-    Row(
-        modifier = modifier,
-        horizontalArrangement = Arrangement.Center
-    ) {
-        // Button
-        Button(
-            modifier = Modifier.size(ButtonDefaults.LargeButtonSize),
-            onClick = { /* ... */ },
-        ) {
-            Icon(
-                imageVector = Icons.Rounded.Phone,
-                contentDescription = "Button triggers phone action",
-                modifier = iconModifier
-            )
-        }
-    }
+
 }
 
 @Composable
 fun TextExample(modifier: Modifier = Modifier) {
     // TODO: Create a Text Composable
-    Text(
-        modifier = modifier,
-        textAlign = TextAlign.Center,
-        color = MaterialTheme.colors.primary,
-        text = stringResource(R.string.device_shape)
-    )
+
 }
 
 @Composable
@@ -91,24 +71,7 @@ fun CardExample(
     iconModifier: Modifier = Modifier
 ) {
     // TODO: Create a Card (specifically, an AppCard) Composable
-    AppCard(
-        modifier = modifier,
-        appImage = {
-            Icon(
-                imageVector = Icons.Rounded.Message,
-                contentDescription = "Card triggers open message action",
-                modifier = iconModifier
-            )
-        },
-        appName = { Text("Messages") },
-        time = { Text("12m") },
-        title = { Text("Kim Green") },
-        onClick = { /* ... */ }
-    ) {
-        Column(modifier = Modifier.fillMaxWidth()) {
-            Text("On my way!")
-        }
-    }
+
 }
 
 @Composable
@@ -117,47 +80,13 @@ fun ChipExample(
     iconModifier: Modifier = Modifier
 ) {
     // TODO: Create a Chip Composable
-    Chip(
-        modifier = modifier,
-        onClick = { /* ... */ },
-        label = {
-            Text(
-                text = "5 minute Meditation",
-                maxLines = 1,
-                overflow = TextOverflow.Ellipsis
-            )
-        },
-        icon = {
-            Icon(
-                imageVector = Icons.Rounded.SelfImprovement,
-                contentDescription = "Chip triggers meditation action",
-                modifier = iconModifier
-            )
-        },
-    )
+
 }
 
 @Composable
 fun ToggleChipExample(modifier: Modifier = Modifier) {
     // TODO: Create a ToggleChip Composable
-    var checked by remember { mutableStateOf(true) }
-    ToggleChip(
-        modifier = modifier,
-        checked = checked,
-        toggleIcon = {
-            ToggleChipDefaults.SwitchIcon(checked = checked)
-        },
-        onCheckedChange = {
-            checked = it
-        },
-        label = {
-            Text(
-                text = "Sound",
-                maxLines = 1,
-                overflow = TextOverflow.Ellipsis
-            )
-        }
-    )
+
 }
 
 // Function only used as a demo for when you start the code lab (removed as step 1).

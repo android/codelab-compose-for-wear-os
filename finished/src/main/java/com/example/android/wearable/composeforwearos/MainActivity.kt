@@ -94,11 +94,12 @@ fun WearApp() {
             }
         ) {
 
+            // Modifiers used by our Wear composables.
             val contentModifier = Modifier.fillMaxWidth().padding(bottom = 8.dp)
             val iconModifier = Modifier.size(24.dp).wrapContentSize(align = Alignment.Center)
 
             /* *************************** Part 3: ScalingLazyColumn *************************** */
-            // TODO: Create a ScalingLazyColumn (Wear's version of LazyColumn)
+            // TODO: Swap a ScalingLazyColumn (Wear's version of LazyColumn)
             ScalingLazyColumn(
                 modifier = Modifier.fillMaxSize(),
                 contentPadding = PaddingValues(
