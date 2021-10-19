@@ -13,12 +13,20 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-dependencyResolutionManagement {
-    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
-    repositories {
-        google()
-        mavenCentral()
-    }
+package com.example.android.wearable.composeforwearos.theme
+
+import androidx.compose.runtime.Composable
+import androidx.wear.compose.material.MaterialTheme
+
+@Composable
+fun WearAppTheme(
+    content: @Composable () -> Unit
+) {
+    MaterialTheme(
+        colors = WearAppColorPalette,
+        typography = WearAppTypography,
+        // For shapes, we generally recommend using the default Material Wear shapes which are
+        // optimized for round and non-round devices.
+        content = content
+    )
 }
-rootProject.name = "Compose for Wear OS Code Lab"
-include ':start', ':finished'
