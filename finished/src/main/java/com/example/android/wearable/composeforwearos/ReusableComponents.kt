@@ -37,6 +37,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.wear.compose.material.AppCard
 import androidx.wear.compose.material.Button
@@ -50,12 +51,12 @@ import androidx.wear.compose.material.ToggleChipDefaults
 
 /* Contains individual Wear OS demo composables for the code lab. */
 
+// TODO: Create a Button Composable (with a Row to center)
 @Composable
 fun ButtonExample(
     modifier: Modifier = Modifier,
     iconModifier: Modifier = Modifier
 ) {
-    // TODO: Create a Button Composable (with a Row to center)
     Row(
         modifier = modifier,
         horizontalArrangement = Arrangement.Center
@@ -74,9 +75,9 @@ fun ButtonExample(
     }
 }
 
+// TODO: Create a Text Composable
 @Composable
 fun TextExample(modifier: Modifier = Modifier) {
-    // TODO: Create a Text Composable
     Text(
         modifier = modifier,
         textAlign = TextAlign.Center,
@@ -85,12 +86,12 @@ fun TextExample(modifier: Modifier = Modifier) {
     )
 }
 
+// TODO: Create a Card (specifically, an AppCard) Composable
 @Composable
 fun CardExample(
     modifier: Modifier = Modifier,
     iconModifier: Modifier = Modifier
 ) {
-    // TODO: Create a Card (specifically, an AppCard) Composable
     AppCard(
         modifier = modifier,
         appImage = {
@@ -111,12 +112,12 @@ fun CardExample(
     }
 }
 
+// TODO: Create a Chip Composable
 @Composable
 fun ChipExample(
     modifier: Modifier = Modifier,
     iconModifier: Modifier = Modifier
 ) {
-    // TODO: Create a Chip Composable
     Chip(
         modifier = modifier,
         onClick = { /* ... */ },
@@ -137,9 +138,9 @@ fun ChipExample(
     )
 }
 
+// TODO: Create a ToggleChip Composable
 @Composable
 fun ToggleChipExample(modifier: Modifier = Modifier) {
-    // TODO: Create a ToggleChip Composable
     var checked by remember { mutableStateOf(true) }
     ToggleChip(
         modifier = modifier,
@@ -168,5 +169,112 @@ fun StartOnlyTextComposables() {
         textAlign = TextAlign.Center,
         color = MaterialTheme.colors.primary,
         text = stringResource(R.string.hello_world_starter)
+    )
+}
+
+/* Previews of Composables. */
+// Note: Preview in Android Studio doesn't support the round view yet (coming soon).
+
+// Hello, world starter text preview
+@Preview(
+    group = "Starter",
+    widthDp = WEAR_PREVIEW_ELEMENT_WIDTH_DP,
+    heightDp = WEAR_PREVIEW_ELEMENT_HEIGHT_DP,
+    apiLevel = WEAR_PREVIEW_API_LEVEL,
+    uiMode = WEAR_PREVIEW_UI_MODE,
+    backgroundColor = WEAR_PREVIEW_BACKGROUND_COLOR_BLACK,
+    showBackground = WEAR_PREVIEW_SHOW_BACKGROUND
+)
+@Composable
+fun StartOnlyTextComposablesPreview() {
+    StartOnlyTextComposables()
+}
+
+// Button Preview
+@Preview(
+    group = "Button",
+    widthDp = WEAR_PREVIEW_ELEMENT_WIDTH_DP,
+    heightDp = WEAR_PREVIEW_ELEMENT_HEIGHT_DP,
+    apiLevel = WEAR_PREVIEW_API_LEVEL,
+    uiMode = WEAR_PREVIEW_UI_MODE,
+    backgroundColor = WEAR_PREVIEW_BACKGROUND_COLOR_BLACK,
+    showBackground = WEAR_PREVIEW_SHOW_BACKGROUND
+)
+@Composable
+fun ButtonExamplePreview() {
+    ButtonExample(
+        modifier = Modifier.fillMaxWidth().padding(bottom = 8.dp),
+        iconModifier = Modifier.size(24.dp).wrapContentSize(align = Alignment.Center)
+    )
+}
+
+// Text Preview
+@Preview(
+    group = "Text",
+    widthDp = WEAR_PREVIEW_ROW_WIDTH_DP,
+    heightDp = WEAR_PREVIEW_ROW_HEIGHT_DP,
+    apiLevel = WEAR_PREVIEW_API_LEVEL,
+    uiMode = WEAR_PREVIEW_UI_MODE,
+    backgroundColor = WEAR_PREVIEW_BACKGROUND_COLOR_BLACK,
+    showBackground = WEAR_PREVIEW_SHOW_BACKGROUND
+)
+@Composable
+fun TextExamplePreview() {
+    TextExample(
+        modifier = Modifier.fillMaxWidth().padding(bottom = 8.dp)
+    )
+}
+
+// Card Preview
+@Preview(
+    group = "Card",
+    widthDp = WEAR_PREVIEW_ROW_WIDTH_DP,
+    heightDp = WEAR_PREVIEW_ROW_HEIGHT_DP,
+    apiLevel = WEAR_PREVIEW_API_LEVEL,
+    uiMode = WEAR_PREVIEW_UI_MODE,
+    backgroundColor = WEAR_PREVIEW_BACKGROUND_COLOR_BLACK,
+    showBackground = WEAR_PREVIEW_SHOW_BACKGROUND
+)
+@Composable
+fun CardExamplePreview() {
+    CardExample(
+        modifier = Modifier.fillMaxWidth().padding(bottom = 8.dp),
+        iconModifier = Modifier.size(24.dp).wrapContentSize(align = Alignment.Center)
+    )
+}
+
+
+// Chip Preview
+@Preview(
+    group = "Chip",
+    widthDp = WEAR_PREVIEW_ROW_WIDTH_DP,
+    heightDp = WEAR_PREVIEW_ROW_HEIGHT_DP,
+    apiLevel = WEAR_PREVIEW_API_LEVEL,
+    uiMode = WEAR_PREVIEW_UI_MODE,
+    backgroundColor = WEAR_PREVIEW_BACKGROUND_COLOR_BLACK,
+    showBackground = WEAR_PREVIEW_SHOW_BACKGROUND
+)
+@Composable
+fun ChipExamplePreview() {
+    ChipExample(
+        modifier = Modifier.fillMaxWidth().padding(bottom = 8.dp),
+        iconModifier = Modifier.size(24.dp).wrapContentSize(align = Alignment.Center)
+    )
+}
+
+// Toggle Chip Preview
+@Preview(
+    group = "Toggle Chip",
+    widthDp = WEAR_PREVIEW_ROW_WIDTH_DP,
+    heightDp = WEAR_PREVIEW_ROW_HEIGHT_DP,
+    apiLevel = WEAR_PREVIEW_API_LEVEL,
+    uiMode = WEAR_PREVIEW_UI_MODE,
+    backgroundColor = WEAR_PREVIEW_BACKGROUND_COLOR_BLACK,
+    showBackground = WEAR_PREVIEW_SHOW_BACKGROUND
+)
+@Composable
+fun ToggleChipExamplePreview() {
+    ToggleChipExample(
+        modifier = Modifier.fillMaxWidth().padding(bottom = 8.dp)
     )
 }

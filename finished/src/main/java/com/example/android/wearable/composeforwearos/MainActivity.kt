@@ -15,7 +15,6 @@
  */
 package com.example.android.wearable.composeforwearos
 
-import android.content.res.Configuration
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -129,12 +128,12 @@ fun WearApp() {
 
 // Note: Preview in Android Studio doesn't support the round view yet (coming soon).
 @Preview(
-    widthDp = 300,
-    heightDp = 300,
-    apiLevel = 26,
-    uiMode = Configuration.UI_MODE_TYPE_WATCH,
-    backgroundColor = 0x000000,
-    showBackground = true
+    widthDp = WEAR_PREVIEW_DEVICE_WIDTH_DP,
+    heightDp = WEAR_PREVIEW_DEVICE_HEIGHT_DP,
+    apiLevel = WEAR_PREVIEW_API_LEVEL,
+    uiMode = WEAR_PREVIEW_UI_MODE,
+    backgroundColor = WEAR_PREVIEW_BACKGROUND_COLOR_BLACK,
+    showBackground = WEAR_PREVIEW_SHOW_BACKGROUND
 )
 @Composable
 fun WearAppPreview() {
