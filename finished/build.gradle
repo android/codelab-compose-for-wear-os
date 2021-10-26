@@ -46,6 +46,7 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
         useIR = true
+        freeCompilerArgs += "-Xopt-in=kotlin.RequiresOptIn"
     }
     buildFeatures {
         compose true
@@ -78,7 +79,7 @@ dependencies {
     implementation "androidx.wear.compose:compose-foundation:$wear_compose_version"
 
     // If you are using Compose Navigation, use the Wear OS version (NOT the
-    // androidx.compose.foundation:foundation version), that is, uncomment the line below.
+    // androidx.navigation:navigation-compose version), that is, uncomment the line below.
     // implementation "androidx.wear.compose:compose-navigation:$wear_compose_version"
 
     // Testing
