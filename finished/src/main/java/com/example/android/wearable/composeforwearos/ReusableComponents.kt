@@ -68,7 +68,7 @@ fun ButtonExample(
         ) {
             Icon(
                 imageVector = Icons.Rounded.Phone,
-                contentDescription = "Button triggers phone action",
+                contentDescription = "triggers phone action",
                 modifier = iconModifier
             )
         }
@@ -97,7 +97,7 @@ fun CardExample(
         appImage = {
             Icon(
                 imageVector = Icons.Rounded.Message,
-                contentDescription = "Card triggers open message action",
+                contentDescription = "triggers open message action",
                 modifier = iconModifier
             )
         },
@@ -131,7 +131,7 @@ fun ChipExample(
         icon = {
             Icon(
                 imageVector = Icons.Rounded.SelfImprovement,
-                contentDescription = "Chip triggers meditation action",
+                contentDescription = "triggers meditation action",
                 modifier = iconModifier
             )
         },
