@@ -66,7 +66,7 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-@OptIn(ExperimentalWearMaterialApi::class, ExperimentalAnimationApi::class)
+@OptIn(ExperimentalWearMaterialApi::class)
 fun WearApp() {
 
     WearAppTheme {
