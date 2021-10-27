@@ -98,12 +98,12 @@ fun WearApp() {
                 // TODO: Remove item; for beginning only.
                 item { StartOnlyTextComposables() }
 
-                /* ******************* Part 1: Similar composables to Mobile ******************* */
+                /* ******************* Part 1: Simple composables ******************* */
                 item { ButtonExample(contentModifier, iconModifier) }
                 item { TextExample(contentModifier) }
                 item { CardExample(contentModifier, iconModifier) }
 
-                /* ********************* Part 2: Wear OS Only composables ********************* */
+                /* ********************* Part 2: Wear unique composables ********************* */
                 item { ChipExample(contentModifier, iconModifier) }
                 item { ToggleChipExample(contentModifier) }
             }
