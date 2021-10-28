@@ -48,6 +48,7 @@ import androidx.wear.compose.material.MaterialTheme
 import androidx.wear.compose.material.Text
 import androidx.wear.compose.material.ToggleChip
 import androidx.wear.compose.material.ToggleChipDefaults
+import com.example.android.wearable.composeforwearos.theme.WearAppTheme
 
 /* Contains individual Wear OS demo composables for the code lab. */
 
@@ -187,7 +188,9 @@ fun StartOnlyTextComposables() {
 )
 @Composable
 fun StartOnlyTextComposablesPreview() {
-    StartOnlyTextComposables()
+    WearAppTheme {
+        StartOnlyTextComposables()
+    }
 }
 
 // Button Preview
@@ -202,10 +205,12 @@ fun StartOnlyTextComposablesPreview() {
 )
 @Composable
 fun ButtonExamplePreview() {
-    ButtonExample(
-        modifier = Modifier.fillMaxWidth().padding(bottom = 8.dp),
-        iconModifier = Modifier.size(24.dp).wrapContentSize(align = Alignment.Center)
-    )
+    WearAppTheme {
+        ButtonExample(
+            modifier = Modifier.fillMaxWidth().padding(bottom = 8.dp),
+            iconModifier = Modifier.size(24.dp).wrapContentSize(align = Alignment.Center)
+        )
+    }
 }
 
 // Text Preview
@@ -220,9 +225,11 @@ fun ButtonExamplePreview() {
 )
 @Composable
 fun TextExamplePreview() {
-    TextExample(
-        modifier = Modifier.fillMaxWidth().padding(bottom = 8.dp)
-    )
+    WearAppTheme {
+        TextExample(
+            modifier = Modifier.fillMaxWidth().padding(bottom = 8.dp)
+        )
+    }
 }
 
 // Card Preview
@@ -237,10 +244,12 @@ fun TextExamplePreview() {
 )
 @Composable
 fun CardExamplePreview() {
-    CardExample(
-        modifier = Modifier.fillMaxWidth().padding(bottom = 8.dp),
-        iconModifier = Modifier.size(24.dp).wrapContentSize(align = Alignment.Center)
-    )
+    WearAppTheme {
+        CardExample(
+            modifier = Modifier.fillMaxWidth().padding(bottom = 8.dp),
+            iconModifier = Modifier.size(24.dp).wrapContentSize(align = Alignment.Center)
+        )
+    }
 }
 
 
@@ -256,10 +265,12 @@ fun CardExamplePreview() {
 )
 @Composable
 fun ChipExamplePreview() {
-    ChipExample(
-        modifier = Modifier.fillMaxWidth().padding(bottom = 8.dp),
-        iconModifier = Modifier.size(24.dp).wrapContentSize(align = Alignment.Center)
-    )
+    WearAppTheme {
+        ChipExample(
+            modifier = Modifier.fillMaxWidth().padding(bottom = 8.dp),
+            iconModifier = Modifier.size(24.dp).wrapContentSize(align = Alignment.Center)
+        )
+    }
 }
 
 // Toggle Chip Preview
@@ -274,7 +285,9 @@ fun ChipExamplePreview() {
 )
 @Composable
 fun ToggleChipExamplePreview() {
-    ToggleChipExample(
-        modifier = Modifier.fillMaxWidth().padding(bottom = 8.dp)
-    )
+    WearAppTheme {
+        ToggleChipExample(
+            modifier = Modifier.fillMaxWidth().padding(bottom = 8.dp)
+        )
+    }
 }
