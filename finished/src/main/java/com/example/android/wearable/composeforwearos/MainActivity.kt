@@ -66,7 +66,7 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-@OptIn(ExperimentalWearMaterialApi::class, ExperimentalAnimationApi::class)
+@OptIn(ExperimentalWearMaterialApi::class)
 fun WearApp() {
 
     WearAppTheme {
@@ -111,12 +111,12 @@ fun WearApp() {
                 state = listState
             ) {
 
-                /* ******************* Part 1: Similar composables to Mobile ******************* */
+                /* ******************* Part 1: Simple composables ******************* */
                 item { ButtonExample(contentModifier, iconModifier) }
                 item { TextExample(contentModifier) }
                 item { CardExample(contentModifier, iconModifier) }
 
-                /* ********************* Part 2: Wear OS Only composables ********************* */
+                /* ********************* Part 2: Wear unique composables ********************* */
                 item { ChipExample(contentModifier, iconModifier) }
                 item { ToggleChipExample(contentModifier) }
             }
