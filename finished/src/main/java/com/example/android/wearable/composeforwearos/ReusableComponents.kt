@@ -16,7 +16,6 @@
 package com.example.android.wearable.composeforwearos
 
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -107,9 +106,7 @@ fun CardExample(
         title = { Text("Kim Green") },
         onClick = { /* ... */ }
     ) {
-        Column(modifier = Modifier.fillMaxWidth()) {
-            Text("On my way!")
-        }
+        Text("On my way!")
     }
 }
 
@@ -146,8 +143,11 @@ fun ToggleChipExample(modifier: Modifier = Modifier) {
     ToggleChip(
         modifier = modifier,
         checked = checked,
-        toggleIcon = {
-            ToggleChipDefaults.SwitchIcon(checked = checked)
+        toggleControl = {
+            Icon(
+                imageVector = ToggleChipDefaults.switchIcon(checked = checked),
+                contentDescription = if (checked) "On" else "Off"
+            )
         },
         onCheckedChange = {
             checked = it

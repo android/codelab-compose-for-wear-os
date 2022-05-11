@@ -18,9 +18,6 @@ package com.example.android.wearable.composeforwearos
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.animation.ExperimentalAnimationApi
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -32,7 +29,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.wear.compose.material.ExperimentalWearMaterialApi
+import androidx.wear.compose.material.AutoCenteringParams
 import androidx.wear.compose.material.PositionIndicator
 import androidx.wear.compose.material.Scaffold
 import androidx.wear.compose.material.ScalingLazyColumn
@@ -66,9 +63,7 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-@OptIn(ExperimentalWearMaterialApi::class)
 fun WearApp() {
-
     WearAppTheme {
         // TODO: Swap to ScalingLazyListState
         val listState = rememberScalingLazyListState()
@@ -101,13 +96,7 @@ fun WearApp() {
             // TODO: Swap a ScalingLazyColumn (Wear's version of LazyColumn)
             ScalingLazyColumn(
                 modifier = Modifier.fillMaxSize(),
-                contentPadding = PaddingValues(
-                    top = 32.dp,
-                    start = 8.dp,
-                    end = 8.dp,
-                    bottom = 32.dp
-                ),
-                verticalArrangement = Arrangement.Center,
+                autoCentering = AutoCenteringParams(itemIndex = 0),
                 state = listState
             ) {
 
