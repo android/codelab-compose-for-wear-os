@@ -19,7 +19,7 @@ plugins {
 }
 
 android {
-    compileSdk 32
+    compileSdk 33
 
     defaultConfig {
         applicationId "com.example.android.wearable.composeforwearos"
@@ -60,6 +60,7 @@ android {
             excludes += '/META-INF/{AL2.0,LGPL2.1}'
         }
     }
+    namespace 'com.example.android.wearable.composeforwearos'
 }
 
 

@@ -37,6 +37,7 @@ import androidx.wear.compose.material.TimeText
 import androidx.wear.compose.material.Vignette
 import androidx.wear.compose.material.VignettePosition
 import androidx.wear.compose.material.rememberScalingLazyListState
+import androidx.wear.compose.material.scrollAway
 import com.example.android.wearable.composeforwearos.theme.WearAppTheme
 
 /**
@@ -72,9 +73,7 @@ fun WearApp() {
         // TODO (Start): Create a Scaffold (Wear Version)
         Scaffold(
             timeText = {
-                if (!listState.isScrollInProgress) {
-                    TimeText()
-                }
+                TimeText(modifier = Modifier.scrollAway(listState))
             },
             vignette = {
                 // Only show a Vignette for scrollable screens. This code lab only has one screen,
@@ -89,8 +88,12 @@ fun WearApp() {
         ) {
 
             // Modifiers used by our Wear composables.
-            val contentModifier = Modifier.fillMaxWidth().padding(bottom = 8.dp)
-            val iconModifier = Modifier.size(24.dp).wrapContentSize(align = Alignment.Center)
+            val contentModifier = Modifier
+                .fillMaxWidth()
+                .padding(bottom = 8.dp)
+            val iconModifier = Modifier
+                .size(24.dp)
+                .wrapContentSize(align = Alignment.Center)
 
             /* *************************** Part 3: ScalingLazyColumn *************************** */
             // TODO: Swap a ScalingLazyColumn (Wear's version of LazyColumn)
@@ -110,7 +113,7 @@ fun WearApp() {
                 item { ToggleChipExample(contentModifier) }
             }
 
-        // TODO (End): Create a Scaffold (Wear Version)
+            // TODO (End): Create a Scaffold (Wear Version)
         }
     }
 }
