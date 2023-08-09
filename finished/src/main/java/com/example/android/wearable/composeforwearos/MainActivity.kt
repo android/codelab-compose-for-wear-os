@@ -27,17 +27,17 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.wear.compose.material.AutoCenteringParams
+import androidx.wear.compose.foundation.lazy.AutoCenteringParams
 import androidx.wear.compose.material.PositionIndicator
 import androidx.wear.compose.material.Scaffold
-import androidx.wear.compose.material.ScalingLazyColumn
+import androidx.wear.compose.foundation.lazy.ScalingLazyColumn
 import androidx.wear.compose.material.TimeText
 import androidx.wear.compose.material.Vignette
 import androidx.wear.compose.material.VignettePosition
-import androidx.wear.compose.material.rememberScalingLazyListState
+import androidx.wear.compose.foundation.lazy.rememberScalingLazyListState
 import androidx.wear.compose.material.scrollAway
+import androidx.wear.compose.ui.tooling.preview.WearPreviewDevices
 import com.example.android.wearable.composeforwearos.theme.WearAppTheme
 
 /**
@@ -118,15 +118,7 @@ fun WearApp() {
     }
 }
 
-// Note: Preview in Android Studio doesn't support the round view yet (coming soon).
-@Preview(
-    widthDp = WEAR_PREVIEW_DEVICE_WIDTH_DP,
-    heightDp = WEAR_PREVIEW_DEVICE_HEIGHT_DP,
-    apiLevel = WEAR_PREVIEW_API_LEVEL,
-    uiMode = WEAR_PREVIEW_UI_MODE,
-    backgroundColor = WEAR_PREVIEW_BACKGROUND_COLOR_BLACK,
-    showBackground = WEAR_PREVIEW_SHOW_BACKGROUND
-)
+@WearPreviewDevices
 @Composable
 fun WearAppPreview() {
     WearApp()

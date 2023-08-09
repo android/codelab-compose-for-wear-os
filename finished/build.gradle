@@ -19,7 +19,7 @@ plugins {
 }
 
 android {
-    compileSdk 33
+    compileSdk 34
 
     defaultConfig {
         applicationId "com.example.android.wearable.composeforwearos"
@@ -77,6 +77,9 @@ dependencies {
 
     // Foundation is additive, so you can use the mobile version in your Wear OS app.
     implementation "androidx.wear.compose:compose-foundation:$wear_compose_version"
+
+    // Compose preview annotations for Wear OS.
+    implementation "androidx.wear.compose:compose-ui-tooling:$wear_compose_version"
 
     // If you are using Compose Navigation, use the Wear OS version (NOT the
     // androidx.navigation:navigation-compose version), that is, uncomment the line below.
