@@ -15,6 +15,7 @@
  */
 package com.example.android.wearable.composeforwearos
 
+import android.content.res.Configuration
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -37,6 +38,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
+import androidx.compose.ui.tooling.preview.Devices
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.wear.compose.material.AppCard
@@ -103,17 +105,12 @@ fun StartOnlyTextComposables() {
 }
 
 /* Previews of Composables. */
-// Note: Preview in Android Studio doesn't support the round view yet (coming soon).
 
 // Hello, world starter text preview
 @Preview(
-    group = "Starter",
-    widthDp = WEAR_PREVIEW_ELEMENT_WIDTH_DP,
-    heightDp = WEAR_PREVIEW_ELEMENT_HEIGHT_DP,
-    apiLevel = WEAR_PREVIEW_API_LEVEL,
-    uiMode = WEAR_PREVIEW_UI_MODE,
-    backgroundColor = WEAR_PREVIEW_BACKGROUND_COLOR_BLACK,
-    showBackground = WEAR_PREVIEW_SHOW_BACKGROUND
+    apiLevel = 26,
+    uiMode = Configuration.UI_MODE_TYPE_WATCH,
+    device = Devices.WEAR_OS_SMALL_ROUND
 )
 @Composable
 fun StartOnlyTextComposablesPreview() {
@@ -124,13 +121,9 @@ fun StartOnlyTextComposablesPreview() {
 
 // Button Preview
 @Preview(
-    group = "Button",
-    widthDp = WEAR_PREVIEW_ELEMENT_WIDTH_DP,
-    heightDp = WEAR_PREVIEW_ELEMENT_HEIGHT_DP,
-    apiLevel = WEAR_PREVIEW_API_LEVEL,
-    uiMode = WEAR_PREVIEW_UI_MODE,
-    backgroundColor = WEAR_PREVIEW_BACKGROUND_COLOR_BLACK,
-    showBackground = WEAR_PREVIEW_SHOW_BACKGROUND
+    apiLevel = 26,
+    uiMode = Configuration.UI_MODE_TYPE_WATCH,
+    device = Devices.WEAR_OS_SMALL_ROUND
 )
 @Composable
 fun ButtonExamplePreview() {
@@ -144,13 +137,9 @@ fun ButtonExamplePreview() {
 
 // Text Preview
 @Preview(
-    group = "Text",
-    widthDp = WEAR_PREVIEW_ROW_WIDTH_DP,
-    heightDp = WEAR_PREVIEW_ROW_HEIGHT_DP,
-    apiLevel = WEAR_PREVIEW_API_LEVEL,
-    uiMode = WEAR_PREVIEW_UI_MODE,
-    backgroundColor = WEAR_PREVIEW_BACKGROUND_COLOR_BLACK,
-    showBackground = WEAR_PREVIEW_SHOW_BACKGROUND
+    apiLevel = 26,
+    uiMode = Configuration.UI_MODE_TYPE_WATCH,
+    device = Devices.WEAR_OS_SMALL_ROUND
 )
 @Composable
 fun TextExamplePreview() {
@@ -163,13 +152,9 @@ fun TextExamplePreview() {
 
 // Card Preview
 @Preview(
-    group = "Card",
-    widthDp = WEAR_PREVIEW_ROW_WIDTH_DP,
-    heightDp = WEAR_PREVIEW_ROW_HEIGHT_DP,
-    apiLevel = WEAR_PREVIEW_API_LEVEL,
-    uiMode = WEAR_PREVIEW_UI_MODE,
-    backgroundColor = WEAR_PREVIEW_BACKGROUND_COLOR_BLACK,
-    showBackground = WEAR_PREVIEW_SHOW_BACKGROUND
+    apiLevel = 26,
+    uiMode = Configuration.UI_MODE_TYPE_WATCH,
+    device = Devices.WEAR_OS_SMALL_ROUND
 )
 @Composable
 fun CardExamplePreview() {
@@ -184,13 +169,9 @@ fun CardExamplePreview() {
 
 // Chip Preview
 @Preview(
-    group = "Chip",
-    widthDp = WEAR_PREVIEW_ROW_WIDTH_DP,
-    heightDp = WEAR_PREVIEW_ROW_HEIGHT_DP,
-    apiLevel = WEAR_PREVIEW_API_LEVEL,
-    uiMode = WEAR_PREVIEW_UI_MODE,
-    backgroundColor = WEAR_PREVIEW_BACKGROUND_COLOR_BLACK,
-    showBackground = WEAR_PREVIEW_SHOW_BACKGROUND
+    apiLevel = 26,
+    uiMode = Configuration.UI_MODE_TYPE_WATCH,
+    device = Devices.WEAR_OS_SMALL_ROUND
 )
 @Composable
 fun ChipExamplePreview() {
@@ -204,13 +185,9 @@ fun ChipExamplePreview() {
 
 // Toggle Chip Preview
 @Preview(
-    group = "Toggle Chip",
-    widthDp = WEAR_PREVIEW_ROW_WIDTH_DP,
-    heightDp = WEAR_PREVIEW_ROW_HEIGHT_DP,
-    apiLevel = WEAR_PREVIEW_API_LEVEL,
-    uiMode = WEAR_PREVIEW_UI_MODE,
-    backgroundColor = WEAR_PREVIEW_BACKGROUND_COLOR_BLACK,
-    showBackground = WEAR_PREVIEW_SHOW_BACKGROUND
+    apiLevel = 26,
+    uiMode = Configuration.UI_MODE_TYPE_WATCH,
+    device = Devices.WEAR_OS_SMALL_ROUND
 )
 @Composable
 fun ToggleChipExamplePreview() {
