@@ -15,7 +15,6 @@
  */
 package com.example.android.wearable.composeforwearos
 
-import android.content.res.Configuration
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
@@ -39,8 +38,6 @@ import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
-import androidx.compose.ui.tooling.preview.Devices
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.wear.compose.material.AppCard
 import androidx.wear.compose.material.Button
@@ -51,6 +48,7 @@ import androidx.wear.compose.material.MaterialTheme
 import androidx.wear.compose.material.Switch
 import androidx.wear.compose.material.Text
 import androidx.wear.compose.material.ToggleChip
+import androidx.wear.compose.ui.tooling.preview.WearPreviewDevices
 import com.example.android.wearable.composeforwearos.theme.WearAppTheme
 
 /* Contains individual Wear OS demo composables for the code lab. */
@@ -59,11 +57,11 @@ import com.example.android.wearable.composeforwearos.theme.WearAppTheme
 @Composable
 fun ButtonExample(
     modifier: Modifier = Modifier,
-    iconModifier: Modifier = Modifier
+    iconModifier: Modifier = Modifier,
 ) {
     Row(
         modifier = modifier,
-        horizontalArrangement = Arrangement.Center
+        horizontalArrangement = Arrangement.Center,
     ) {
         // Button
         Button(
@@ -73,7 +71,7 @@ fun ButtonExample(
             Icon(
                 imageVector = Icons.Rounded.Phone,
                 contentDescription = "triggers phone action",
-                modifier = iconModifier
+                modifier = iconModifier,
             )
         }
     }
@@ -86,7 +84,7 @@ fun TextExample(modifier: Modifier = Modifier) {
         modifier = modifier,
         textAlign = TextAlign.Center,
         color = MaterialTheme.colors.primary,
-        text = stringResource(R.string.device_shape)
+        text = stringResource(R.string.device_shape),
     )
 }
 
@@ -94,7 +92,7 @@ fun TextExample(modifier: Modifier = Modifier) {
 @Composable
 fun CardExample(
     modifier: Modifier = Modifier,
-    iconModifier: Modifier = Modifier
+    iconModifier: Modifier = Modifier,
 ) {
     AppCard(
         modifier = modifier,
@@ -102,13 +100,13 @@ fun CardExample(
             Icon(
                 imageVector = Icons.Rounded.Message,
                 contentDescription = "triggers open message action",
-                modifier = iconModifier
+                modifier = iconModifier,
             )
         },
         appName = { Text("Messages") },
         time = { Text("12m") },
         title = { Text("Kim Green") },
-        onClick = { /* ... */ }
+        onClick = { /* ... */ },
     ) {
         Text("On my way!")
     }
@@ -118,7 +116,7 @@ fun CardExample(
 @Composable
 fun ChipExample(
     modifier: Modifier = Modifier,
-    iconModifier: Modifier = Modifier
+    iconModifier: Modifier = Modifier,
 ) {
     Chip(
         modifier = modifier,
@@ -127,14 +125,14 @@ fun ChipExample(
             Text(
                 text = "5 minute Meditation",
                 maxLines = 1,
-                overflow = TextOverflow.Ellipsis
+                overflow = TextOverflow.Ellipsis,
             )
         },
         icon = {
             Icon(
                 imageVector = Icons.Rounded.SelfImprovement,
                 contentDescription = "triggers meditation action",
-                modifier = iconModifier
+                modifier = iconModifier,
             )
         },
     )
@@ -152,7 +150,7 @@ fun ToggleChipExample(modifier: Modifier = Modifier) {
                 checked = checked,
                 modifier = Modifier.semantics {
                     this.contentDescription = if (checked) "On" else "Off"
-                }
+                },
             )
         },
         onCheckedChange = {
@@ -162,9 +160,9 @@ fun ToggleChipExample(modifier: Modifier = Modifier) {
             Text(
                 text = "Sound",
                 maxLines = 1,
-                overflow = TextOverflow.Ellipsis
+                overflow = TextOverflow.Ellipsis,
             )
-        }
+        },
     )
 }
 
@@ -175,18 +173,14 @@ fun StartOnlyTextComposables() {
         modifier = Modifier.fillMaxSize(),
         textAlign = TextAlign.Center,
         color = MaterialTheme.colors.primary,
-        text = stringResource(R.string.hello_world_starter)
+        text = stringResource(R.string.hello_world_starter),
     )
 }
 
 /* Previews of Composables. */
 
 // Hello, world starter text preview
-@Preview(
-    apiLevel = 26,
-    uiMode = Configuration.UI_MODE_TYPE_WATCH,
-    device = Devices.WEAR_OS_SMALL_ROUND
-)
+@WearPreviewDevices
 @Composable
 fun StartOnlyTextComposablesPreview() {
     WearAppTheme {
@@ -195,11 +189,7 @@ fun StartOnlyTextComposablesPreview() {
 }
 
 // Button Preview
-@Preview(
-    apiLevel = 26,
-    uiMode = Configuration.UI_MODE_TYPE_WATCH,
-    device = Devices.WEAR_OS_SMALL_ROUND
-)
+@WearPreviewDevices
 @Composable
 fun ButtonExamplePreview() {
     WearAppTheme {
@@ -209,34 +199,26 @@ fun ButtonExamplePreview() {
                 .padding(bottom = 8.dp),
             iconModifier = Modifier
                 .size(24.dp)
-                .wrapContentSize(align = Alignment.Center)
+                .wrapContentSize(align = Alignment.Center),
         )
     }
 }
 
 // Text Preview
-@Preview(
-    apiLevel = 26,
-    uiMode = Configuration.UI_MODE_TYPE_WATCH,
-    device = Devices.WEAR_OS_SMALL_ROUND
-)
+@WearPreviewDevices
 @Composable
 fun TextExamplePreview() {
     WearAppTheme {
         TextExample(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(bottom = 8.dp)
+                .padding(bottom = 8.dp),
         )
     }
 }
 
 // Card Preview
-@Preview(
-    apiLevel = 26,
-    uiMode = Configuration.UI_MODE_TYPE_WATCH,
-    device = Devices.WEAR_OS_SMALL_ROUND
-)
+@WearPreviewDevices
 @Composable
 fun CardExamplePreview() {
     WearAppTheme {
@@ -246,18 +228,13 @@ fun CardExamplePreview() {
                 .padding(bottom = 8.dp),
             iconModifier = Modifier
                 .size(24.dp)
-                .wrapContentSize(align = Alignment.Center)
+                .wrapContentSize(align = Alignment.Center),
         )
     }
 }
 
-
 // Chip Preview
-@Preview(
-    apiLevel = 26,
-    uiMode = Configuration.UI_MODE_TYPE_WATCH,
-    device = Devices.WEAR_OS_SMALL_ROUND,
-)
+@WearPreviewDevices
 @Composable
 fun ChipExamplePreview() {
     WearAppTheme {
@@ -267,24 +244,20 @@ fun ChipExamplePreview() {
                 .padding(bottom = 8.dp),
             iconModifier = Modifier
                 .size(24.dp)
-                .wrapContentSize(align = Alignment.Center)
+                .wrapContentSize(align = Alignment.Center),
         )
     }
 }
 
 // Toggle Chip Preview
-@Preview(
-    apiLevel = 26,
-    uiMode = Configuration.UI_MODE_TYPE_WATCH,
-    device = Devices.WEAR_OS_SMALL_ROUND
-)
+@WearPreviewDevices
 @Composable
 fun ToggleChipExamplePreview() {
     WearAppTheme {
         ToggleChipExample(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(bottom = 8.dp)
+                .padding(bottom = 8.dp),
         )
     }
 }

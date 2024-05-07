@@ -13,6 +13,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+        google()
+        mavenCentral()
+    }
+}
+
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
@@ -20,5 +28,5 @@ dependencyResolutionManagement {
         mavenCentral()
     }
 }
-rootProject.name = "Compose for Wear OS Code Lab"
+rootProject.name = "ComposeForWearOSCodeLab"
 include ':start', ':finished'

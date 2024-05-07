@@ -29,13 +29,13 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.wear.compose.foundation.lazy.AutoCenteringParams
+import androidx.wear.compose.foundation.lazy.ScalingLazyColumn
+import androidx.wear.compose.foundation.lazy.rememberScalingLazyListState
 import androidx.wear.compose.material.PositionIndicator
 import androidx.wear.compose.material.Scaffold
-import androidx.wear.compose.foundation.lazy.ScalingLazyColumn
 import androidx.wear.compose.material.TimeText
 import androidx.wear.compose.material.Vignette
 import androidx.wear.compose.material.VignettePosition
-import androidx.wear.compose.foundation.lazy.rememberScalingLazyListState
 import androidx.wear.compose.material.scrollAway
 import androidx.wear.compose.ui.tooling.preview.WearPreviewDevices
 import com.example.android.wearable.composeforwearos.theme.WearAppTheme
@@ -82,11 +82,10 @@ fun WearApp() {
             },
             positionIndicator = {
                 PositionIndicator(
-                    scalingLazyListState = listState
+                    scalingLazyListState = listState,
                 )
-            }
+            },
         ) {
-
             // Modifiers used by our Wear composables.
             val contentModifier = Modifier
                 .fillMaxWidth()
@@ -100,9 +99,8 @@ fun WearApp() {
             ScalingLazyColumn(
                 modifier = Modifier.fillMaxSize(),
                 autoCentering = AutoCenteringParams(itemIndex = 0),
-                state = listState
+                state = listState,
             ) {
-
                 /* ******************* Part 1: Simple composables ******************* */
                 item { ButtonExample(contentModifier, iconModifier) }
                 item { TextExample(contentModifier) }
