@@ -31,14 +31,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import androidx.wear.compose.foundation.lazy.AutoCenteringParams
-import androidx.wear.compose.material.PositionIndicator
-import androidx.wear.compose.material.Scaffold
 import androidx.wear.compose.foundation.lazy.ScalingLazyColumn
-import androidx.wear.compose.material.TimeText
-import androidx.wear.compose.material.Vignette
-import androidx.wear.compose.material.VignettePosition
-import androidx.wear.compose.foundation.lazy.rememberScalingLazyListState
+import androidx.wear.compose.material.Scaffold
 import androidx.wear.compose.ui.tooling.preview.WearPreviewDevices
 import com.example.android.wearable.composeforwearos.theme.WearAppTheme
 
@@ -74,39 +68,37 @@ fun WearApp() {
         /* *************************** Part 4: Wear OS Scaffold *************************** */
         // TODO (Start): Create a Scaffold (Wear Version)
 
-            // Modifiers used by our Wear composables.
-            val contentModifier = Modifier.fillMaxWidth().padding(bottom = 8.dp)
-            val iconModifier = Modifier.size(24.dp).wrapContentSize(align = Alignment.Center)
+        // Modifiers used by our Wear composables.
+        val contentModifier = Modifier.fillMaxWidth().padding(bottom = 8.dp)
+        val iconModifier = Modifier.size(24.dp).wrapContentSize(align = Alignment.Center)
 
-            /* *************************** Part 3: ScalingLazyColumn *************************** */
-            // TODO: Swap a ScalingLazyColumn (Wear's version of LazyColumn)
-            LazyColumn(
-                modifier = Modifier.fillMaxSize(),
-                contentPadding = PaddingValues(
-                    top = 32.dp,
-                    start = 8.dp,
-                    end = 8.dp,
-                    bottom = 32.dp
-                ),
-                verticalArrangement = Arrangement.Center,
-                state = listState
-            ) {
+        /* *************************** Part 3: ScalingLazyColumn *************************** */
+        // TODO: Swap a ScalingLazyColumn (Wear's version of LazyColumn)
+        LazyColumn(
+            modifier = Modifier.fillMaxSize(),
+            contentPadding = PaddingValues(
+                top = 32.dp,
+                start = 8.dp,
+                end = 8.dp,
+                bottom = 32.dp,
+            ),
+            verticalArrangement = Arrangement.Center,
+            state = listState,
+        ) {
+            // TODO: Remove item; for beginning only.
+            item { StartOnlyTextComposables() }
 
-                // TODO: Remove item; for beginning only.
-                item { StartOnlyTextComposables() }
+            /* ******************* Part 1: Simple composables ******************* */
+            item { ButtonExample(contentModifier, iconModifier) }
+            item { TextExample(contentModifier) }
+            item { CardExample(contentModifier, iconModifier) }
 
-                /* ******************* Part 1: Simple composables ******************* */
-                item { ButtonExample(contentModifier, iconModifier) }
-                item { TextExample(contentModifier) }
-                item { CardExample(contentModifier, iconModifier) }
-
-                /* ********************* Part 2: Wear unique composables ********************* */
-                item { ChipExample(contentModifier, iconModifier) }
-                item { ToggleChipExample(contentModifier) }
-            }
+            /* ********************* Part 2: Wear unique composables ********************* */
+            item { ChipExample(contentModifier, iconModifier) }
+            item { ToggleChipExample(contentModifier) }
+        }
 
         // TODO (End): Create a Scaffold (Wear Version)
-
     }
 }
 

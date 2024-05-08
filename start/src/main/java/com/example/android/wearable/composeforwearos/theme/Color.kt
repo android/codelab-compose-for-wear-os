@@ -32,5 +32,5 @@ val WearAppColorPalette: Colors = Colors(
     error = Red400,
     onPrimary = Color.Black,
     onSecondary = Color.Black,
-    onError = Color.Black
+    onError = Color.Black,
 )

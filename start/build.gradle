@@ -25,8 +25,9 @@ android {
         applicationId "com.example.android.wearable.composeforwearos"
         // 26 - Second oldest Wear 2.0 version (majority of devices)
         minSdk 26
-        // 30 - First Wear 3.0 version (and latest version of Wear OS)
-        targetSdk 30
+        // Refer to https://developer.android.com/google/play/requirements/target-sdk to learn
+        // about latest target sdk
+        targetSdk 33
         versionCode 1
         versionName "1.0"
 
@@ -51,7 +52,7 @@ android {
         compose true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion "$compose_compiler_version"
+        kotlinCompilerExtensionVersion libs.versions.compose.compiler.get()
     }
     packagingOptions {
         resources {
@@ -66,29 +67,26 @@ android {
 
 dependencies {
     // TODO: Review Dependencies
-    // General Compose dependencies
-    implementation "androidx.activity:activity-compose:$activity_compose_version"
-    implementation "androidx.compose.ui:ui-tooling-preview:$compose_version"
-    implementation "androidx.compose.foundation:foundation:$compose_version"
-    implementation "androidx.compose.material:material-icons-extended:$compose_version"
+    def composeBom = platform(libs.androidx.compose.bom)
+
+    // General compose dependencies
+    implementation composeBom
+    implementation libs.androidx.activity.compose
+    implementation libs.compose.ui.tooling.preview
+
+    implementation(libs.androidx.material.icons.extended)
 
     // Compose for Wear OS Dependencies
-    implementation "androidx.wear.compose:compose-material:$wear_compose_version"
+    implementation libs.wear.compose.material
 
     // Foundation is additive, so you can use the mobile version in your Wear OS app.
-    implementation "androidx.wear.compose:compose-foundation:$wear_compose_version"
+    implementation libs.wear.compose.foundation
 
     // Compose preview annotations for Wear OS.
-    implementation "androidx.wear.compose:compose-ui-tooling:$wear_compose_version"
+    implementation(libs.androidx.compose.ui.tooling)
 
-    // If you are using Compose Navigation, use the Wear OS version (NOT the
-    // androidx.navigation:navigation-compose version), that is, uncomment the line below.
-    // implementation "androidx.wear.compose:compose-navigation:$wear_compose_version"
+    debugImplementation libs.compose.ui.tooling
+    debugImplementation libs.androidx.ui.test.manifest
+    debugImplementation composeBom
 
-    // Testing
-    testImplementation "junit:junit:$junit_version"
-    androidTestImplementation "androidx.test.ext:junit:$androidx_test_ext_junit_version"
-    androidTestImplementation "androidx.test.espresso:espresso-core:$espresso_version"
-    androidTestImplementation "androidx.compose.ui:ui-test-junit4:$compose_version"
-    debugImplementation "androidx.compose.ui:ui-tooling:$compose_version"
 }
