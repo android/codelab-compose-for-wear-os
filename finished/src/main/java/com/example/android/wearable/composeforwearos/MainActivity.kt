@@ -18,7 +18,6 @@ package com.example.android.wearable.composeforwearos
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -28,17 +27,16 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import androidx.wear.compose.foundation.lazy.AutoCenteringParams
 import androidx.wear.compose.foundation.lazy.ScalingLazyColumn
-import androidx.wear.compose.foundation.lazy.rememberScalingLazyListState
-import androidx.wear.compose.material.PositionIndicator
 import androidx.wear.compose.material.Scaffold
-import androidx.wear.compose.material.TimeText
-import androidx.wear.compose.material.Vignette
-import androidx.wear.compose.material.VignettePosition
-import androidx.wear.compose.material.scrollAway
-import androidx.wear.compose.ui.tooling.preview.WearPreviewDevices
 import com.example.android.wearable.composeforwearos.theme.WearAppTheme
+import com.google.android.horologist.annotations.ExperimentalHorologistApi
+import com.google.android.horologist.compose.layout.AppScaffold
+import com.google.android.horologist.compose.layout.ScalingLazyColumn
+import com.google.android.horologist.compose.layout.ScalingLazyColumnDefaults
+import com.google.android.horologist.compose.layout.ScalingLazyColumnDefaults.ItemType
+import com.google.android.horologist.compose.layout.ScreenScaffold
+import com.google.android.horologist.compose.layout.rememberResponsiveColumnState
 
 /**
  * This code lab is meant to help existing Compose developers get up to speed quickly on
@@ -48,7 +46,9 @@ import com.example.android.wearable.composeforwearos.theme.WearAppTheme
  * existing mobile composables and new composables).
  *
  * It also covers more advanced composables like [ScalingLazyColumn] (Wear OS's version of
- * [LazyColumn]) and the Wear OS version of [Scaffold].
+ * [LazyColumn]) and the Wear OS version of [Scaffold].The codelab explains the advantage of using
+ * Horologist [ScalingLazyColumn] and Horologist [AppScaffold] and [ScreenScaffold] to simplify
+ * code development to align with Wear OS UX guidance.
  *
  * Check out [this link](https://android-developers.googleblog.com/2021/10/compose-for-wear-os-now-in-developer.html)
  * for more information on Compose for Wear OS.
@@ -63,61 +63,64 @@ class MainActivity : ComponentActivity() {
     }
 }
 
+@OptIn(ExperimentalHorologistApi::class)
 @Composable
 fun WearApp() {
     WearAppTheme {
-        // TODO: Swap to ScalingLazyListState
-        val listState = rememberScalingLazyListState()
-
         /* *************************** Part 4: Wear OS Scaffold *************************** */
-        // TODO (Start): Create a Scaffold (Wear Version)
-        Scaffold(
-            timeText = {
-                TimeText(modifier = Modifier.scrollAway(listState))
-            },
-            vignette = {
-                // Only show a Vignette for scrollable screens. This code lab only has one screen,
-                // which is scrollable, so we show it all the time.
-                Vignette(vignettePosition = VignettePosition.TopAndBottom)
-            },
-            positionIndicator = {
-                PositionIndicator(
-                    scalingLazyListState = listState,
-                )
-            },
-        ) {
+        // TODO (Start): Create a AppScaffold (Wear Version)
+        /*
+         * [Horologist] AppScaffold adds a TimeText by default that can be override by the
+         * ScreenScaffold. It ensures that TimeText animates correctly when navigating between
+         * screens.
+         * */
+        AppScaffold {
+            // TODO: Swap to ScalingLazyColumnState
+        /*
+         * Specifying the types of items that appear at the start and end of the list ensures that the
+         * appropriate padding is used.
+         */
+            val listState = rememberResponsiveColumnState(
+                contentPadding = ScalingLazyColumnDefaults.padding(
+                    first = ItemType.SingleButton,
+                    last = ItemType.Chip,
+                ),
+            )
             // Modifiers used by our Wear composables.
-            val contentModifier = Modifier
-                .fillMaxWidth()
-                .padding(bottom = 8.dp)
-            val iconModifier = Modifier
-                .size(24.dp)
-                .wrapContentSize(align = Alignment.Center)
+            val contentModifier = Modifier.fillMaxWidth().padding(bottom = 8.dp)
+            val iconModifier = Modifier.size(24.dp).wrapContentSize(align = Alignment.Center)
 
-            /* *************************** Part 3: ScalingLazyColumn *************************** */
-            // TODO: Swap a ScalingLazyColumn (Wear's version of LazyColumn)
-            ScalingLazyColumn(
-                modifier = Modifier.fillMaxSize(),
-                autoCentering = AutoCenteringParams(itemIndex = 0),
-                state = listState,
+            /* *************************** Part 4: Wear OS Scaffold *************************** */
+            // TODO (Start): Create a ScreenScaffold (Wear Version)
+            /*
+             * [Horologist] ScreenScaffold is used in conjunction with AppScaffold and adds a
+             * position indicator to the list by default.
+             * */
+            ScreenScaffold(
+                scrollState = listState,
             ) {
-                /* ******************* Part 1: Simple composables ******************* */
-                item { ButtonExample(contentModifier, iconModifier) }
-                item { TextExample(contentModifier) }
-                item { CardExample(contentModifier, iconModifier) }
+                /* *************************** Part 3: ScalingLazyColumn *************************** */
+                // TODO: Swap a ScalingLazyColumn (Wear's version of LazyColumn)
+                /*
+                 * [Horologist] ScalingLazyColumn applies padding for elements in the list to
+                 * make sure no elements are clipped on different screen sizes.
+                 * */
+                ScalingLazyColumn(
+                    columnState = listState,
+                ) {
+                    /* ******************* Part 1: Simple composables ******************* */
+                    item { ButtonExample(contentModifier, iconModifier) }
+                    item { TextExample(contentModifier) }
+                    item { CardExample(contentModifier, iconModifier) }
 
-                /* ********************* Part 2: Wear unique composables ********************* */
-                item { ChipExample(contentModifier, iconModifier) }
-                item { ToggleChipExample(contentModifier) }
+                    /* ********************* Part 2: Wear unique composables ********************* */
+                    item { ChipExample(contentModifier, iconModifier) }
+                    item { ToggleChipExample(contentModifier) }
+                }
+
+                // TODO (End): Create a ScreenScaffold (Wear Version)
             }
-
-            // TODO (End): Create a Scaffold (Wear Version)
+            // TODO (End): Create a AppScaffold (Wear Version)
         }
     }
-}
-
-@WearPreviewDevices
-@Composable
-fun WearAppPreview() {
-    WearApp()
 }
