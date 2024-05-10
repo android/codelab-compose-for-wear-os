@@ -23,6 +23,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.rounded.Message
 import androidx.compose.material.icons.rounded.Message
 import androidx.compose.material.icons.rounded.Phone
 import androidx.compose.material.icons.rounded.SelfImprovement
@@ -98,7 +99,7 @@ fun CardExample(
         modifier = modifier,
         appImage = {
             Icon(
-                imageVector = Icons.Rounded.Message,
+                imageVector = Icons.AutoMirrored.Rounded.Message,
                 contentDescription = "triggers open message action",
                 modifier = iconModifier,
             )

@@ -35,6 +35,10 @@ import androidx.wear.compose.foundation.lazy.ScalingLazyColumn
 import androidx.wear.compose.material.Scaffold
 import androidx.wear.compose.ui.tooling.preview.WearPreviewDevices
 import com.example.android.wearable.composeforwearos.theme.WearAppTheme
+import com.google.android.horologist.annotations.ExperimentalHorologistApi
+import com.google.android.horologist.compose.layout.AppScaffold
+import com.google.android.horologist.compose.layout.ScalingLazyColumn
+import com.google.android.horologist.compose.layout.ScreenScaffold
 
 /**
  * This code lab is meant to help existing Compose developers get up to speed quickly on
@@ -44,7 +48,9 @@ import com.example.android.wearable.composeforwearos.theme.WearAppTheme
  * existing mobile composables and new composables).
  *
  * It also covers more advanced composables like [ScalingLazyColumn] (Wear OS's version of
- * [LazyColumn]) and the Wear OS version of [Scaffold].
+ * [LazyColumn]) and the Wear OS version of [Scaffold].The codelab explains the advantage of using
+ * Horologist [ScalingLazyColumn] and Horologist [AppScaffold] and [ScreenScaffold] to simplify
+ * code development to align with Wear OS UX guidance.
  *
  * Check out [this link](https://android-developers.googleblog.com/2021/10/compose-for-wear-os-now-in-developer.html)
  * for more information on Compose for Wear OS.
@@ -59,14 +65,18 @@ class MainActivity : ComponentActivity() {
     }
 }
 
+@OptIn(ExperimentalHorologistApi::class)
 @Composable
 fun WearApp() {
     WearAppTheme {
-        // TODO: Swap to ScalingLazyListState
+        /* *************************** Part 4: Wear OS Scaffold *************************** */
+        // TODO (Start): Create a AppScaffold (Wear Version)
+
+        // TODO: Swap to ScalingLazyColumnState
         val listState = rememberLazyListState()
 
         /* *************************** Part 4: Wear OS Scaffold *************************** */
-        // TODO (Start): Create a Scaffold (Wear Version)
+        // TODO (Start): Create a ScreenScaffold (Wear Version)
 
         // Modifiers used by our Wear composables.
         val contentModifier = Modifier.fillMaxWidth().padding(bottom = 8.dp)
@@ -98,8 +108,9 @@ fun WearApp() {
             item { ToggleChipExample(contentModifier) }
         }
 
-        // TODO (End): Create a Scaffold (Wear Version)
+        // TODO (End): Create a ScreenScaffold (Wear Version)
     }
+    // TODO (End): Create a AppScaffold (Wear Version)
 }
 
 @WearPreviewDevices
