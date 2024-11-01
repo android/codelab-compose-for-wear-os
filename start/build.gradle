@@ -27,7 +27,7 @@ android {
         minSdk 26
         // Refer to https://developer.android.com/google/play/requirements/target-sdk to learn
         // about latest target sdk
-        targetSdk 33
+        targetSdk 34
         versionCode 1
         versionName "1.0"
 
