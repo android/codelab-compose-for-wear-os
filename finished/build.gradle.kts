@@ -20,7 +20,7 @@ plugins {
 }
 
 android {
-    compileSdk = 35
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "com.example.android.wearable.composeforwearos"
@@ -28,7 +28,7 @@ android {
         minSdk = 26
         // Refer to https://developer.android.com/google/play/requirements/target-sdk to learn
         // about latest target sdk
-        targetSdk = 35
+        targetSdk = 36
         versionCode = 1
         versionName = "1.0"
     }
